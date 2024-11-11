@@ -40,6 +40,15 @@ class MainViewModel() : ViewModel() {
     private val _serieCast = MutableStateFlow<List<Cast>>(emptyList())
     val serieCast: StateFlow<List<Cast>> = _serieCast
 
+    private val _serieDeActeur = MutableStateFlow<List<Cast2>>(emptyList())
+    val serieDeActeur: StateFlow<List<Cast2>> = _serieDeActeur
+
+    private val _movieDeActeur = MutableStateFlow<List<Cast1>>(emptyList())
+    val movieDeActeur: StateFlow<List<Cast1>> = _movieDeActeur
+
+    private val _acteurInfo = MutableStateFlow<List<ActeurInfoModel>>(emptyList())
+    val acteurInfo: StateFlow<List<ActeurInfoModel>> = _acteurInfo
+
     var search = MutableStateFlow("")
 
     private val retrofit = Retrofit.Builder()
@@ -136,6 +145,27 @@ class MainViewModel() : ViewModel() {
         viewModelScope.launch {
             val response = api.ActeursSerie(id, apiKey, langage)
             _serieCast.value=response.cast
+        }
+    }
+
+    fun serieDeActeur(id: String) {
+        viewModelScope.launch {
+            val response = api.SeriesDeActeur(id, apiKey, langage)
+            _serieDeActeur.value=response.cast
+        }
+    }
+
+    fun moviesDeActeur(id: String) {
+        viewModelScope.launch {
+            val response = api.MoviesDeActeur(id, apiKey, langage)
+            _movieDeActeur.value=response.cast
+        }
+    }
+
+    fun acteurInfo(id: String) {
+        viewModelScope.launch {
+            val response = api.Acteur(id, apiKey, langage)
+            _acteurInfo.value= listOf(response)
         }
     }
 

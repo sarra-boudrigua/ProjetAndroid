@@ -34,5 +34,15 @@ interface Api {
     @GET("tv/{id}/credits")
     suspend fun ActeursSerie(@Path("id") id: String, @Query("api_key") api_key: String, @Query("language") langage: String): CastModel
 
+    @GET("person/{id}")
+    suspend fun Acteur(@Path("id") id: String, @Query("api_key") api_key: String, @Query("language") langage: String): ActeurInfoModel
+
+
+    @GET("person/{personne_id}/movie_credits")
+    suspend fun MoviesDeActeur(@Path("personne_id") id: String, @Query("api_key") api_key: String, @Query("language") langage: String): MovieDeActeurModel
+
+    @GET("person/{personne_id}/tv_credits")
+    suspend fun SeriesDeActeur(@Path("personne_id") id: String, @Query("api_key") api_key: String, @Query("language") langage: String): SerieDeActeurModel
+
 
 }

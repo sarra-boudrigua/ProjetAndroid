@@ -4,7 +4,6 @@ data class moviesModel(
     val page: Int,
     val results: List<moviesResult>
 )
-
 data class moviesResult(
     val adult: Boolean,
     val backdrop_path: String,
@@ -69,7 +68,6 @@ data class personResult(
 data class MovieDetailsModel(
     val adult: Boolean,
     val backdrop_path: String,
-    val belongs_to_collection: BelongsToCollection,
     val budget: Int,
     val genres: List<Genre>,
     val homepage: String,
@@ -81,12 +79,9 @@ data class MovieDetailsModel(
     val overview: String,
     val popularity: Double,
     val poster_path: String,
-    val production_companies: List<ProductionCompany>,
-    val production_countries: List<ProductionCountry>,
     val release_date: String,
     val revenue: Int,
     val runtime: Int,
-    val spoken_languages: List<SpokenLanguage>,
     val status: String,
     val tagline: String,
     val title: String,
@@ -95,40 +90,18 @@ data class MovieDetailsModel(
     val vote_count: Int
 )
 
-data class BelongsToCollection(
-    val backdrop_path: String,
-    val id: Int,
-    val name: String,
-    val poster_path: String
-)
+
 
 data class Genre(
     val id: Int,
     val name: String
 )
 
-data class ProductionCompany(
-    val id: Int,
-    val logo_path: String,
-    val name: String,
-    val origin_country: String
-)
 
-data class ProductionCountry(
-    val iso_3166_1: String,
-    val name: String
-)
-
-data class SpokenLanguage(
-    val english_name: String,
-    val iso_639_1: String,
-    val name: String
-)
 
 data class serieDetailsModel(
     val adult: Boolean,
     val backdrop_path: String,
-    val created_by: List<CreatedBy>,
     val episode_run_time: List<Any>,
     val first_air_date: String,
     val genres: List<serieGenre>,
@@ -137,9 +110,7 @@ data class serieDetailsModel(
     val in_production: Boolean,
     val languages: List<String>,
     val last_air_date: String,
-    val last_episode_to_air: LastEpisodeToAir,
     val name: String,
-    val networks: List<Network>,
     val next_episode_to_air: Any,
     val number_of_episodes: Int,
     val number_of_seasons: Int,
@@ -149,10 +120,6 @@ data class serieDetailsModel(
     val overview: String,
     val popularity: Double,
     val poster_path: String,
-    val production_companies: List<ProductionCompany>,
-    val production_countries: List<ProductionCountry>,
-    val seasons: List<Season>,
-    val spoken_languages: List<SpokenLanguage>,
     val status: String,
     val tagline: String,
     val type: String,
@@ -160,64 +127,15 @@ data class serieDetailsModel(
     val vote_count: Int
 )
 
-data class CreatedBy(
-    val credit_id: String,
-    val gender: Int,
-    val id: Int,
-    val name: String,
-    val original_name: String,
-    val profile_path: String
-)
-
 data class serieGenre(
     val id: Int,
     val name: String
 )
 
-data class LastEpisodeToAir(
-    val air_date: String,
-    val episode_number: Int,
-    val episode_type: String,
-    val id: Int,
-    val name: String,
-    val overview: String,
-    val production_code: String,
-    val runtime: Int,
-    val season_number: Int,
-    val show_id: Int,
-    val still_path: String,
-    val vote_average: Double,
-    val vote_count: Int
-)
-
-data class Network(
-    val id: Int,
-    val logo_path: String,
-    val name: String,
-    val origin_country: String
-)
-
-
-
-
-
-data class Season(
-    val air_date: String,
-    val episode_count: Int,
-    val id: Int,
-    val name: String,
-    val overview: String,
-    val poster_path: String,
-    val season_number: Int,
-    val vote_average: Double
-)
-
 data class CastModel(
     val cast: List<Cast>,
-    val crew: List<Crew>,
     val id: Int
 )
-
 data class Cast(
     val adult: Boolean,
     val character: String,
@@ -231,17 +149,66 @@ data class Cast(
     val popularity: Double,
     val profile_path: String
 )
-
-data class Crew(
+data class ActeurInfoModel(
     val adult: Boolean,
-    val credit_id: String,
-    val department: String,
+    val also_known_as: List<String>,
+    val biography: String,
+    val birthday: String,
+    val deathday: Any,
     val gender: Int,
+    val homepage: String,
     val id: Int,
-    val job: String,
+    val imdb_id: String,
     val known_for_department: String,
     val name: String,
-    val original_name: String,
+    val place_of_birth: String,
     val popularity: Double,
     val profile_path: String
+)
+
+data class MovieDeActeurModel(
+    val cast: List<Cast1>,
+    val id: Int
+)
+data class Cast1(
+    val adult: Boolean,
+    val backdrop_path: String,
+    val character: String,
+    val credit_id: String,
+    val genre_ids: List<Int>,
+    val id: Int,
+    val order: Int,
+    val original_language: String,
+    val original_title: String,
+    val overview: String,
+    val popularity: Double,
+    val poster_path: String,
+    val release_date: String,
+    val title: String,
+    val video: Boolean,
+    val vote_average: Double,
+    val vote_count: Int
+)
+data class SerieDeActeurModel(
+    val cast: List<Cast2>,
+    val id: Int
+)
+data class Cast2(
+    val adult: Boolean,
+    val backdrop_path: String,
+    val character: String,
+    val credit_id: String,
+    val episode_count: Int,
+    val first_air_date: String,
+    val genre_ids: List<Int>,
+    val id: Int,
+    val name: String,
+    val origin_country: List<String>,
+    val original_language: String,
+    val original_name: String,
+    val overview: String,
+    val popularity: Double,
+    val poster_path: String,
+    val vote_average: Double,
+    val vote_count: Int
 )

@@ -21,13 +21,14 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavHostController
 import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
 import com.example.tp1.TopBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun personnes(windowSizeClass: WindowSizeClass, viewModel: MainViewModel = viewModel()) {
+fun personnes(windowSizeClass: WindowSizeClass, viewModel: MainViewModel = viewModel(),navController: NavHostController) {
     val personnes by viewModel.acteurs.collectAsState()
     val searchedActeurs by viewModel.searchedActeurs.collectAsState()
     var searchText by remember { mutableStateOf("") }
@@ -67,7 +68,10 @@ fun personnes(windowSizeClass: WindowSizeClass, viewModel: MainViewModel = viewM
                                         contentDescription = null,
                                         modifier = Modifier
                                             .height(300.dp)
-                                            .fillMaxWidth(),
+                                            .fillMaxWidth()
+                                            .clickable(onClick = {
+                                                navController.navigate("acteur/${p.id}")
+                                            }),
                                         contentScale = ContentScale.Fit
                                     )
                                     Text(
@@ -99,6 +103,9 @@ fun personnes(windowSizeClass: WindowSizeClass, viewModel: MainViewModel = viewM
                                 modifier = Modifier
                                     .height(300.dp)
                                     .fillMaxWidth()
+                                    .clickable(onClick = {
+                                        navController.navigate("acteur/${p.id}")
+                                    }),
                             )
                             Text(
                                 text = p.name,
