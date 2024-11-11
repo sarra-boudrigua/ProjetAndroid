@@ -245,34 +245,14 @@ fun Nav(navController: NavHostController, innerPadding: PaddingValues) {
         startDestination = "home"
     ) {
         composable("home") {
-            home(
-                windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
-                Modifier.padding(innerPadding),
-                navController
-            )
-        }
+            home(windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass, Modifier.padding(innerPadding), navController) }
         composable("films") {
-            films(
-                windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
-                viewModel = viewModel(),
-                navController
-            )
-        }
-        composable("series") {
-            series(
-                windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
-                viewModel = viewModel(),
-                navController
-            )
-        }
+            films(windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass, viewModel = viewModel(), navController) }
+        composable("series") { series(windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass, viewModel = viewModel(), navController) }
         composable("personnes") { personnes(windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass) }
 
-        composable("film/{id}") { film(viewModel = viewModel(), navController) }
-        composable("serie/{id}") {
-            serie(
-                viewModel = viewModel(),
-                navController
-            )
+        composable("film/{id}") { film(windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,viewModel = viewModel(), navController) }
+        composable("serie/{id}") { serie(windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass, viewModel = viewModel(), navController)
         }
     }
 }
