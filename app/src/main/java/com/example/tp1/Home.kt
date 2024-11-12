@@ -1,4 +1,4 @@
-package com.example.tp1.ui.theme
+package com.example.tp1
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
-import com.example.tp1.R
 
 @Composable
 fun home(windowSizeClass: WindowSizeClass, modifier: Modifier = Modifier, navController: NavHostController) {

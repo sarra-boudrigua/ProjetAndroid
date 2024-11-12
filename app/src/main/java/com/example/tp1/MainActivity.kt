@@ -25,14 +25,13 @@ import androidx.navigation.compose.rememberNavController
 import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
 import com.example.tp1.ui.theme.TP1Theme
-import com.example.tp1.ui.theme.acteur
-import com.example.tp1.ui.theme.films
-import com.example.tp1.ui.theme.home
-import com.example.tp1.ui.theme.personnes
-import com.example.tp1.ui.theme.series
-import film
+import com.example.tp1.ActeursFile.acteur
+import com.example.tp1.MoviesFile.films
+import com.example.tp1.ActeursFile.personnes
+import com.example.tp1.SeriesFile.series
+import com.example.tp1.MoviesFile.film
 import kotlinx.serialization.Serializable
-import serie
+import com.example.tp1.SeriesFile.serie
 
 @Serializable
 class Home

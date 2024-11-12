@@ -1,4 +1,4 @@
-package com.example.tp1.ui.theme
+package com.example.tp1
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package com.example.tp1.ui.theme
+package com.example.tp1
 
 import retrofit2.http.GET
 import retrofit2.http.Path

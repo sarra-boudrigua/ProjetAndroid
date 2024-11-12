@@ -1,4 +1,5 @@
-import androidx.compose.foundation.clickable
+package com.example.tp1.SeriesFile
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -21,7 +22,7 @@ import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
 import coil.compose.AsyncImage
 import com.example.tp1.R
-import com.example.tp1.ui.theme.MainViewModel
+import com.example.tp1.MainViewModel
 
 @Composable
 fun serie(windowSizeClass: WindowSizeClass, viewModel: MainViewModel, navController: NavController) {
