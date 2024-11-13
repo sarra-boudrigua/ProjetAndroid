@@ -49,6 +49,9 @@ class MainViewModel() : ViewModel() {
     private val _acteurInfo = MutableStateFlow<List<ActeurInfoModel>>(emptyList())
     val acteurInfo: StateFlow<List<ActeurInfoModel>> = _acteurInfo
 
+    private val _collection = MutableStateFlow<List<Result>>(emptyList())
+    val collection: StateFlow<List<Result>> = _collection
+
     var search = MutableStateFlow("")
 
     private val retrofit = Retrofit.Builder()
@@ -166,6 +169,13 @@ class MainViewModel() : ViewModel() {
         viewModelScope.launch {
             val response = api.Acteur(id, apiKey, langage)
             _acteurInfo.value= listOf(response)
+        }
+    }
+
+    fun searchCollection() {
+        viewModelScope.launch {
+            val response = api.HorrorCollection(apiKey, "horror", langage)
+            _collection.value=response.results
         }
     }
 

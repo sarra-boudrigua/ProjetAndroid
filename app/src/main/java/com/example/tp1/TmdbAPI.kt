@@ -44,5 +44,6 @@ interface Api {
     @GET("person/{personne_id}/tv_credits")
     suspend fun SeriesDeActeur(@Path("personne_id") id: String, @Query("api_key") api_key: String, @Query("language") langage: String): SerieDeActeurModel
 
-
+    @GET("search/collection")
+    suspend fun HorrorCollection( @Query("api_key") api_key: String,@Query("query") searchtext: String, @Query("language") langage: String): HorrorCollectionModel
 }
