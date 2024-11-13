@@ -175,6 +175,18 @@ fun BottomBar(
                 selected = currentDestination?.route == "personnes",
                 onClick = { navController.navigate("personnes") }
             )
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        painterResource(R.drawable.baseline_insert_drive_file_24),
+                        contentDescription = null,
+                        Modifier.size(30.dp)
+                    )
+                },
+                label = { Text("examen") },
+                selected = currentDestination?.route == "examen",
+                onClick = { navController.navigate("examen") }
+            )
         }
     }
 }
@@ -234,6 +246,21 @@ fun BottomBar(
                     modifier = Modifier.padding(top = 4.dp)
                 )
             }
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                IconButton(
+                    onClick = { navController.navigate("examen") },
+                    modifier = Modifier.size(60.dp)
+                ) {
+                    Icon(
+                        painterResource(R.drawable.baseline_insert_drive_file_24),
+                        contentDescription = null
+                    )
+                }
+                Text(
+                    "Examen",
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
         }
     }
 
@@ -265,7 +292,13 @@ fun Nav(navController: NavHostController, innerPadding: PaddingValues) {
                 navController
             )
         }
-        composable("personnes") { personnes(windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,viewModel = viewModel(),navController) }
+        composable("personnes") {
+            personnes(
+                windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
+                viewModel = viewModel(),
+                navController
+            )
+        }
 
         composable("film/{id}") {
             film(
@@ -281,6 +314,15 @@ fun Nav(navController: NavHostController, innerPadding: PaddingValues) {
                 navController
             )
         }
-        composable("acteur/{id}") { acteur( windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass, viewModel = viewModel(), navController) } }
+        composable("acteur/{id}") {
+            acteur(
+                windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
+                viewModel = viewModel(),
+                navController
+            )
+        }
+        composable("examen") { examenScreen() }
+    }
 }
+
 
