@@ -321,7 +321,7 @@ fun Nav(navController: NavHostController, innerPadding: PaddingValues) {
                 navController
             )
         }
-        composable("examen") { examenScreen(viewModel = viewModel(),) }
+        composable("examen") { examenScreen(viewModel = viewModel()) }
     }
 }
 
